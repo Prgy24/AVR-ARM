@@ -1,4 +1,4 @@
-'
+
 ;/* PROGRAM TO ------------------ */
 
 ;ARM CODE 
@@ -9,19 +9,16 @@
 ;/* Application code for assembly starts here */
 
 main_asm:
-
-
+	mov r0,#2
+	mov r1,#3
+	mov r2,#4
+	mov r3,#1
+	mov r4,#5
+	mov r5,#5
+	stmfd sp!,{r4-r5,lr}
+	bl add
+	mov r6,r0 
 	
-	MOV R0,#64
-here:	mov r1,#01
-	
-	add r0,r1,r0
-	cmp r0,#90
-	swi 0x00
-	bne here	
 	
 loop:   b loop
-
-	
-
 .end 

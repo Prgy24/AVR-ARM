@@ -33,7 +33,7 @@ RESET_HANDLER           :       b initilize_stack
 
 UNDEF_HANDLER           :       movs pc,r14
 
-SWI_HANDLER             :	movs pc,r14
+SWI_HANDLER             :	movs pc,r14 
 
 PREFETCH_ABORT_HANDLER  :       subs pc,r14,#4
 

@@ -9,11 +9,9 @@
 ;/* Application code for assembly starts here */
 
 main_asm:
-	mov r1,#-10;
-	add r2,r1,r1,asr #31
-	eor r1,r2,r1,asr #31
-
-	
+	mov r1,#04;
+	mov r2,#01;
+	add r3,r1,r2;
 	
 	
 loop:   b loop

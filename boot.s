@@ -33,15 +33,7 @@ RESET_HANDLER           :       b initilize_stack
 
 UNDEF_HANDLER           :       movs pc,r14
 
-SWI_HANDLER             :	
-				STMFD SP!,{R0-R7,LR}
-				LDR R6,[LR,#-4]
-				BIC R6,R6,#0XFF00FFFF
-			     	MOV R5,#02				
-				MOV R7,#03
-				ADD R4,R5,R7
-
-				LDMFD SP!,{R0-R7,PC}^
+SWI_HANDLER             :	movs pc,r14
 
 PREFETCH_ABORT_HANDLER  :       subs pc,r14,#4
 

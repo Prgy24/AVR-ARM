@@ -9,10 +9,12 @@
 ;/* Application code for assembly starts here */
 
 main_asm:
+	LDR r1,=0xF631024C;
+	LDR r2,=0x17539ABD;
+	eor r1,r1,r2;
+	eor r2,r1,r2;
+	eor r1,r1,r2;
 
-	movs r1,#02;
-	movs r2,#03;	
-	mul r3,r1,r2;
 	
 	
 loop:   b loop

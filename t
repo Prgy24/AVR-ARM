@@ -12,19 +12,22 @@ ARM GAS  app.s 			page 1
    9              	;/* Application code for assembly starts here */
   10              	
   11              	main_asm:
-  12              	
-  13 0000 0210B0E3 		movs r1,#02;
-  14 0004 0320B0E3 		movs r2,#03;	
-  15 0008 910203E0 		mul r3,r1,r2;
-  16              		
-  17              		
-  18 000c 010000EA 	loop:   b loop
-  19              	.end 
+  12 0000 10109FE5 		LDR r1,=0xF631024C;
+  13 0004 10209FE5 		LDR r2,=0x17539ABD;
+  14 0008 021021E0 		eor r1,r1,r2;
+  15 000c 022021E0 		eor r2,r1,r2;
+  16 0010 021021E0 		eor r1,r1,r2;
+  17              	
+  18              		
+  19              		
+  20 0014 030000EA 	loop:   b loop
+  21 0018 4C0231F6 	.end 
+  21      BD9A5317 
 ARM GAS  app.s 			page 2
 
 
 DEFINED SYMBOLS
                app.s:11     .text:00000000 main_asm
-               app.s:18     .text:0000000c loop
+               app.s:20     .text:00000014 loop
 
 NO UNDEFINED SYMBOLS

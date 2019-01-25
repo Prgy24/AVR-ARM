@@ -64,7 +64,7 @@ initilize_stack :
         orr r0,r0,#USR
         msr CPSR,r0
         ldr SP,=0x7000
-        b main
+        b main_asm
 
 
 .end 

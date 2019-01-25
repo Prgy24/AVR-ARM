@@ -10,14 +10,28 @@
 
 main_asm:
 	
-	mov r1,#02
-	mov r2,#03
-	add r3,r1,r2
+		ldr r0,=thumb+1         ; +1 to enter Thumb state
+	        mov lr,pc               ; set the return address
+	        bx r0                   ; branch to Thumb code
 	
-	swi 0x123
+	        LDR r11,=0x030000CF
+	        LDR r12,=0x070000FC
+	        add r10,r11,r12
 
-	mov r2,#05
-	add r3,r3,r2
 	
 loop:   b loop
+
+	.code 16                ;half word align
+
+	thumb:  MOV r1,#0x05
+	        MOV r2,#0x0a
+	        add r0,r1,r2    ;perform addition of r1 and r2 ,store the result in r0
+
+		swi 0x12
+	        MOV r1,#0xff
+	        MOV r2,#0xaa
+
+	        bx lr           ;return to ARM code and state
+
+
 .end 
